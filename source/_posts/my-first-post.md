@@ -6,3 +6,7 @@ title: first-post
 
 ## h2
 
+## haha
+
+*nihao*
+**good morning**
