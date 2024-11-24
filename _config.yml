@@ -101,6 +101,5 @@ theme: landscape
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: 'git'
-  repo: git@github.com:Winnie-Flores/Winnie-Flores.github.io.git
-  branch: main
+  type: ''
+  
