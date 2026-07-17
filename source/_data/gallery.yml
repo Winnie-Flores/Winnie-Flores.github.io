@@ -1,0 +1,12 @@
+image_01:
+  full_link: /images/fulls/01.jpg
+  thumb_link: /images/thumbs/01.jpg
+  descr: Gallery image 01
+image_02:
+  full_link: /images/fulls/02.jpg
+  thumb_link: /images/thumbs/02.jpg
+  descr: Gallery image 02
+image_03:
+  full_link: /images/fulls/03.jpg
+  thumb_link: /images/thumbs/03.jpg
+  descr: Gallery image 03
