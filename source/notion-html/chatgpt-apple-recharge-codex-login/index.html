@@ -1,0 +1,769 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>ChatGPT苹果充值与codeX登录（踩坑解疑）</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure,
+aside,
+details {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><style>@import url('https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex-swap.min.css')</style></head><body><article id="39e0281e-26eb-80c7-80fd-efe83c5545b6" class="page sans"><header><h1 class="page-title" dir="auto">ChatGPT苹果充值与codeX登录（踩坑解疑）</h1><p class="page-description" dir="auto"></p></header><div class="page-body"><h1 id="39e0281e-26eb-80cf-8996-f991cee47855" class="" dir="auto">1 背景说明</h1><p id="39e0281e-26eb-804f-93d4-ed98cfa3eef0" class="" dir="auto">继Claude被封后，终于开始探索GPT。结果由于前期瞎搞，AppleID、google、ChatGPT、codex账号用的非常乱，导致充值、登录、使用遇到很多问题。本文主要讲一下遇到的一些坑，每一步的详细教程附上了我参考的链接，大家自行点击查看。</p><p id="39e0281e-26eb-80fb-8085-cb2b14528716" class="" dir="auto">前情说明：本人没有国外电话卡与支付方式。如果你有以上两个，那么恭喜你，失去了阅读本文的价值🤭</p><p id="39e0281e-26eb-806c-a598-efd194fb7b55" class="" dir="auto">ps. 默认读者们会魔法的哈🔮（pc端有，iPhone上还没有的，到自己订阅的网站上找找对应的教程）</p><hr id="39f0281e-26eb-80a7-b546-eacdd922ced6" dir="auto"/><h1 id="39e0281e-26eb-8041-9a06-ec5314336fab" class="" dir="auto">2 我的环境</h1><p id="39e0281e-26eb-8043-ba67-d14814f56b52" class="" dir="auto">系统：macOS Sequoia 15.7.3</p><p id="39e0281e-26eb-80a1-9ce1-eb1dce413fdc" class="" dir="auto">浏览器：Chrome</p><p id="39e0281e-26eb-8049-bfd4-c5e49b929880" class="" dir="auto">支付方式：支付宝（Apple 礼品卡）</p><p id="39e0281e-26eb-808b-8415-f062f7a9bf6f" class="" dir="auto">账号：ChatGPT Plus</p><p id="39e0281e-26eb-808a-9cae-c57ea5490c25" class="" dir="auto">ChatGPT：Chrome 登录</p><hr id="39f0281e-26eb-8036-a778-fd8e5f2311b7" dir="auto"/><h1 id="39e0281e-26eb-80cb-b344-da517b26842f" class="" dir="auto">3 整个流程</h1><h2 id="39e0281e-26eb-80bb-9acf-e163c76a4d14" class="" dir="auto">3.1 注册GPT账号</h2><p id="39e0281e-26eb-80b8-8027-e8a789615a77" class="" dir="auto">谷歌浏览器使用的是qq邮箱注册登录的，后来换了个gmail。</p><p id="39e0281e-26eb-80fb-891a-e310a49df68f" class="" dir="auto">网页端ChatGPT直接使用谷歌登录，由于我的网页端很久以前就登录了，所以这里没有遇到验证电话号码的问题。如果这里有遇到验证电话号码 还请自行搜索解决方案🤓</p><h2 id="39e0281e-26eb-80d1-861b-d023464ed8c0" class="" dir="auto">3.2 充值支付</h2><p id="39e0281e-26eb-8059-80d0-ef3bcc8dda4e" class="" dir="auto"><em>这里全部都在手机上完成。</em></p><h3 id="39e0281e-26eb-80a3-8902-eef5516180c0" class="" dir="auto">3.2.1 注册美区AppleID</h3><p id="39e0281e-26eb-8092-8d61-d4ad7d0874b3" class="" dir="auto">第一步：切换手机地区</p><p id="39e0281e-26eb-8057-9f54-f6ac6b65ca6d" class="" dir="auto">iphone设置 ——&gt; 通用 ——&gt; 语言与地区 ——&gt; 地区 ——&gt; 选择“美国”</p><p id="39e0281e-26eb-80d5-9928-c211284c1b8f" class="" dir="auto">这里选择美国后，会重启iPhone</p><p id="39e0281e-26eb-800e-b385-cdc2622a2a31" class="" dir="auto">第二步：Apple官网注册ID</p><p id="39e0281e-26eb-80f4-9587-e46fdfb82a38" class="" dir="auto">按照步骤注册即可，不过注意地区要选择“美国”，地址网上找个地址生成器生成一个即可，把必填的填了，选填的不填（尽量少填），这些信息记得自己保存一份，以备以后有用</p><p id="39e0281e-26eb-808a-a2b6-d502b57cc28a" class="" dir="auto">（这时候如果apple官网一直打不开，那就要使用魔法了）</p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="39e0281e-26eb-8098-9b58-c6a45c5f0540" dir="ltr"><div style="width:100%"><p id="39e0281e-26eb-80af-b673-f04d700cac8a" class="" dir="auto">💡这里，我以前的国区id切换过一次美区，但是由于一些软件美区app store上没有，就换回来了。结果后来再想换出去，就发现无法跳过支付方式这一栏了，必须要有visa之类的。🍠和b站上找了很多方法，就这个直接切换手机系统地区的有用。（这个方法是五月份用的，后面如果还有新变化，还请uu们再多上网找找解决方案）</p></div></aside><h3 id="39e0281e-26eb-8018-b514-eb25d67ca7dd" class="" dir="auto">3.2.2 下载手机端ChatGPT</h3><p id="39e0281e-26eb-8093-b5f9-d03683f24508" class="" dir="auto">app store里先退出原本的账号，然后使用新注册的美区id登录。现在，就可以搜索到并下载Chatgpt了。下载后，登录跟电脑同一个GPT账号。</p><h3 id="39e0281e-26eb-8006-85c0-e65929f8d42b" class="" dir="auto">3.2.3 GPT充值</h3><p id="39e0281e-26eb-8031-a710-ddb730413417" class="" dir="auto">我使用的是支付宝礼品卡，跟的以下这篇教程：</p><p id="39e0281e-26eb-80e9-834c-c8af86477848" class="" dir="auto">无痛get GPT 无需visa/mastercard 1. 在苹果官网注册... <a href="http://xhslink.com/o/AT7ocncDVWT">http://xhslink.com/o/AT7ocncDVWT</a> 前往【小红书】一探究竟吧！</p><ol type="1" id="39e0281e-26eb-80f4-9885-def19213b8ee" class="numbered-list" start="1" dir="auto"><li>将支付宝首页左上角的地区改为“旧金山”</li></ol><ol type="1" id="39e0281e-26eb-800c-8d5d-e3398e5863a2" class="numbered-list" start="2" dir="auto"><li>在“更多”里的“境外服务”找到“礼品卡”</li></ol><ol type="1" id="39e0281e-26eb-8017-9d33-c37c6c226322" class="numbered-list" start="3" dir="auto"><li>找到“Apple”</li></ol><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="39e0281e-26eb-8072-971e-ee0272087606" dir="ltr"><div style="width:100%"><p id="39e0281e-26eb-805c-96a3-f37d7c81ec6d" class="" dir="auto">💡注意，这时候可能会找不到Apple，过段时间再试试就好，有一点碰运气。我大概是过了几分钟，又刷了一次就出来了，就在滚动屏里，显示“Apple礼卡回归”。</p></div></aside><ol type="1" id="39e0281e-26eb-80e9-a5a8-ecd41fe9d6bc" class="numbered-list" start="4" dir="auto"><li>点击“Apple”后，输入充值金额即可（plus：20 dollar ； pro：100/200 dollar），完成充值后会给你一个兑换码</li></ol><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="39e0281e-26eb-80b3-90fe-d28108dd6f39" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%"><p id="39e0281e-26eb-80de-b34c-e74a915846b5" class="" dir="auto">点击充值后，它会先让你注册VIP（是免费的），跟着指引注册即可，然后完成支付</p></div></aside><ol type="1" id="39e0281e-26eb-80fc-98ef-e822a685f887" class="numbered-list" start="5" dir="auto"><li>打开app store，点击右上角头像，找到兑换充值卡或代码，输入兑换码，就将刚刚的金额冲到AppleID里啦</li></ol><ol type="1" id="39e0281e-26eb-800f-a86c-e499ec5f2e0c" class="numbered-list" start="6" dir="auto"><li>打开gpt升级plus的地方，付款自动从这个苹果id账号扣款。</li></ol><p id="39e0281e-26eb-805a-afd4-deef7689561e" class="" dir="auto">到这里，GPT就成功升级了</p><h2 id="39e0281e-26eb-808c-945d-c928e3f89ead" class="" dir="auto">3.3 codeX下载与登录</h2><p id="39e0281e-26eb-80f2-afdf-f14c856666ac" class="" dir="auto">正常流程就是在官网下载codex，然后使用GPT登录。但是，由于我的codex之前接过其他的api 以及一些其他乱七八糟的原因，所以这里非常不顺利，后面就讲讲我遇到的问题、尝试过的方法和最终方案。</p><h1 id="39e0281e-26eb-809e-9bb6-d144669e3ac8" class="" dir="auto">4 所有踩坑</h1><p id="39e0281e-26eb-80fc-a976-ec2317526cb8" class="" dir="auto">首先注意一点，没有充值的GPT是用不了codex的。白嫖失败😅</p><h3 id="39e0281e-26eb-80d8-b8be-dbb8b0b4e085" class="" dir="auto">4.1 codex登录时验证电话号码</h3><p id="39e0281e-26eb-804c-b30b-e1fc17d66df4" class="" dir="auto">没有外面的手机号真的很痛苦啊😣</p><p id="39e0281e-26eb-8004-91cb-f0c2bbb6661a" class="" dir="auto">跟着一个b站的视频，不用手机号，完成了ChatGPT账号登录codex。他使用的是一个Chrome插件，自动获取你网页版GPT的账号信息，生成auth.json，然后你手动将这个json文件加入codex应用系统配置里，即可完成登录。（视频链接在后面）</p><p id="39e0281e-26eb-80cf-8289-c619dd08e6a2" class="" dir="auto">问题：</p><p id="39e0281e-26eb-80e5-a2ad-dee758db3637" class="" dir="auto">使用这种方法登录后，codex显示“Your access token could not be refreshed. Please log out and sign in again.”无法使用你的GPT余额</p><p id="39e0281e-26eb-80fd-8743-c197596ccef4" class="" dir="auto">【全程无广！教你如何彻底解决codex验证手机号问题！】<a href="https://www.bilibili.com/video/BV16sNj6ZEPv?vd_source=06cf6463373983dbe141af20e7628533">https://www.bilibili.com/video/BV16sNj6ZEPv?vd_source=06cf6463373983dbe141af20e7628533</a></p><h2 id="39e0281e-26eb-80e2-9e9e-f15db08ad1ad" class="" dir="auto">4.2 “Your access token could not be refreshed. Please log out and sign in again.”</h2><p id="39e0281e-26eb-8015-84db-e856c38ea208" class="" dir="auto">采用的是上面那个视频评论区里“四元三色”发的一个方法：</p><p id="39e0281e-26eb-8069-a157-facb5a6e636f" class="" dir="auto">“这个是因为最新版的有更多验证时效性的，但不要慌，首先你网页版是能用的，有个登录方式叫临时码验证，为一些无头端准备的，如下两步：</p><p id="39e0281e-26eb-8042-9138-fdcb9a813f53" class="" dir="auto">第一步，去命令行里codex logout登出（如果你本来就没登那就不用管这一步）；</p><p id="39e0281e-26eb-8065-8085-f4ff14dab574" class="" dir="auto">第二步，命令行里输入codex login --device-auth登录，会有两个选项，第一个是打开浏览器也就是会要求手机的那种，第二个就是临时码登录，会给你一串编码，格式应该是XXXX-XXXXX九个数字，在auth.openai.com/codex/device按指示操作，填入就登上了。注意，命令行里可能因为字符编码问题产生一些乱码，或者你实在不知道设备码怎么弄的，把输入codex login --device-auth后弹出的一大段直接复制下来问AI，AI会教你的。”</p><p id="39e0281e-26eb-800b-98dc-f66dbedac194" class="" dir="auto">🍎 注意，这个方式使用了codex cli版，需要先在终端进行安装。否则，会出现 zsh: command not found: codex</p><ol type="1" id="39e0281e-26eb-8020-bea3-d838c5933fbf" class="numbered-list" start="1" dir="auto"><li>检查node、npm是否存在</li></ol><p id="39e0281e-26eb-80de-9b6b-cfa9493645c4" class="" dir="auto"><code>node -v</code></p><p id="39e0281e-26eb-80e8-8e71-e6d0d7dec407" class="" dir="auto"><code>npm -v</code></p><p id="39e0281e-26eb-80b2-aa38-d1a5dafbffb4" class="" dir="auto">不存在就用brew装node</p><p id="39e0281e-26eb-802c-8868-ce6b76374953" class="" dir="auto"><code>brew install node</code></p><ol type="1" id="39e0281e-26eb-80f7-974c-ffaf6aebe695" class="numbered-list" start="2" dir="auto"><li>全局安装codex cli</li></ol><p id="39e0281e-26eb-80ac-b35b-d611ef6b1b7e" class="" dir="auto"><code>npm install -g @openai/codex</code></p><ol type="1" id="39e0281e-26eb-8000-b4b0-de571d99faf7" class="numbered-list" start="3" dir="auto"><li>修复PATH （解决command not found）</li></ol><p id="39e0281e-26eb-8094-a19e-e9271fa1a475" class="" dir="auto">npm 全局工具默认路径没加入 zsh 环境变量：</p><p id="39e0281e-26eb-80fd-96cd-e3e70842a99b" class="" dir="auto"><code>npm prefix -g</code>#获取npm全局目录</p><p id="39e0281e-26eb-80f8-9150-d29164e62800" class="" dir="auto"><code>echo &#x27;export PATH=&quot;$(npm prefix -g)/bin:$PATH&quot;&#x27; &gt;&gt; ~/.zshrc</code>  #将bin目录写入zsh配置 </p><p id="39e0281e-26eb-8014-9b40-d7812b1dd43d" class="" dir="auto"><code>source ~/.zshrc</code>  #重载终端配置，立刻生效</p><p id="39e0281e-26eb-8085-90fc-e706a581ad2a" class="" dir="auto"><code>hash -r </code>#清空zsh命令缓存</p><ol type="1" id="39e0281e-26eb-80aa-bd00-c390c41f2d7a" class="numbered-list" start="4" dir="auto"><li>验证是否可用</li></ol><p id="39e0281e-26eb-8095-b754-e72505795643" class="" dir="auto"><code>which codex</code>  #查看命令路径</p><p id="39e0281e-26eb-8035-91bd-d2fa2eac957f" class="" dir="auto"><code>codex --version</code>  #输出版本号即成功</p><ol type="1" id="39e0281e-26eb-80a2-8dd9-d42eeffba736" class="numbered-list" start="5" dir="auto"><li>执行你原本的登录命令（无报错后再跑）</li></ol><p id="39e0281e-26eb-8077-afce-f969256458ad" class="" dir="auto"><code>codex login --device-auth</code></p><aside class="block-color-gray_background callout" data-notion-callout="" data-notion-callout-icon="💡" data-notion-callout-background="gray_background" style="white-space:pre-wrap;display:flex" id="39e0281e-26eb-8032-ae2c-c96a0f970ecb" dir="ltr"><div style="font-size:1.5em"><span class="icon" data-emoji="💡"></span></div><div style="width:100%"><p id="39e0281e-26eb-807f-8001-f744564e42da" class="" dir="auto">当你点击auth.openai.com/codex/device打开浏览器后，选择谷歌登录，输入你的谷歌账号后，便会跳出输入临时码的窗口。</p><ol type="1" id="39e0281e-26eb-804b-ba1d-fe7e3b32e027" class="numbered-list" start="1" dir="auto"><li>这里注意，上面这一步浏览器可能频繁出错或者失败，请检查节点代理，推荐使用美、日等，不要使用香港、新加坡的节点（我因为这里被卡了很久很久）。</li></ol><ol type="1" id="39e0281e-26eb-807e-8a18-d7a9c549a097" class="numbered-list" start="2" dir="auto"><li>如果输入codex login --device-auth 后，终端有报错，请直接将报错扔给豆包，按照指示清理缓存与更新</li></ol></div></aside><h2 id="39e0281e-26eb-8052-9319-d264ce852f2a" class="" dir="auto">4.3 对话时五次重新连接</h2><figure id="39e0281e-26eb-80a1-9be7-dcb3a146fd52" class="image" data-notion-image="IMG_0149.jpeg" dir="ltr"><a href="IMG_0149.jpeg"><img style="width:480px" src="IMG_0149.jpeg"/></a></figure><p id="39e0281e-26eb-80f4-9f48-c45bdc13ea79" class="" dir="auto">端口号在clash的设置页面可以查看，一般是7890</p><p id="39e0281e-26eb-80d7-8941-d82958a37fbb" class="" dir="auto">.env内容：</p><p id="39e0281e-26eb-8059-a8bb-f16d561c5ce8" class="" dir="auto"># 示例（替换成你的代理地址端口）</p><p id="39e0281e-26eb-808d-a96d-e85b271212a8" class="" dir="auto"><code>HTTP_PROXY=http://127.0.0.1:xxxx</code></p><p id="39e0281e-26eb-8080-892e-f36a48a9a70b" class="" dir="auto"><code>HTTPS_PROXY=http://127.0.0.1:xxxx</code></p><p id="39e0281e-26eb-8047-bddf-f3beb8da488c" class="" dir="auto"><code>ALL_PROXY=socks5://127.0.0.1:xxxx</code></p><p id="39e0281e-26eb-80ea-b7b9-fe72157f2ed9" class="" dir="auto"><code>NO_PROXY=localhost,127.0.0.1</code></p><p id="39e0281e-26eb-80db-8024-f490f8ef97c6" class="" dir="auto">
+</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+

@@ -1,0 +1,12 @@
+<body class="is-loading">
+    <div id="wrapper" class="fade-in">
+        <%- partial('_partial/headerlogo', {}, {cache: true}) %>
+        <%- partial('_partial/nav', {}, {cache: true}) %>
+
+        <div id="main" style="padding: 0; overflow: hidden;">
+            <%- page.content %>
+        </div>
+
+        <%- partial('_partial/copyright', {}, {cache: true}) %>
+    </div>
+</body>
